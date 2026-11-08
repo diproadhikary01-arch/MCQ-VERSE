@@ -1,2 +1,4 @@
 # MCQ-VERSE
-​A curated digital archive of HSC Arts MCQs to help students boost their exam preparation and test their knowledge.
+​Welcome to MCQ VERSE — a comprehensive, open-source digital archive and interactive practice hub meticulously built and structured specifically for HSC Arts and Humanities students.
+​The core objective of this repository is to bridge the gap in digital study materials for humanities disciplines by centralizing chapter-wise and subject-wise multiple-choice questions (MCQs). Whether you are preparing for your board exams, college term tests, or university admission assessments, this platform serves as an all-in-one resource to streamline your revision process, test your conceptual knowledge, and track your academic progress.
+​Contributions, suggestions, and community-driven improvements are always welcome to make this repository an even better learning tool for every HSC Arts student out there. 
