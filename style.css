@@ -762,3 +762,159 @@ body {
     transition-duration: .01ms !important;
   }
 }
+/* ==========================================
+   MCQ VERSE — PREMIUM STAR ANIMATION
+   Remove Circle • Floating Stars • Twinkle
+========================================== */
+
+/* গোল সার্কেল সম্পূর্ণ বন্ধ */
+.hero-section::before {
+  display: none !important;
+  content: none !important;
+}
+
+/* Background floating stars */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+
+  background-image:
+    radial-gradient(circle, #f8df9d 1.5px, transparent 2px),
+    radial-gradient(circle, #e6bd65 2px, transparent 3px),
+    radial-gradient(circle, #ffffff 1px, transparent 2px),
+    radial-gradient(circle, #36d69a 1.5px, transparent 2px);
+
+  background-size:
+    180px 210px,
+    270px 290px,
+    130px 160px,
+    320px 350px;
+
+  background-position:
+    20px 30px,
+    100px 120px,
+    60px 90px,
+    180px 200px;
+
+  opacity: .55;
+  animation: starDrift 22s linear infinite;
+}
+
+/* Hero section star field */
+.hero-section {
+  isolation: isolate;
+  background:
+    radial-gradient(circle at 78% 76%, rgba(230,189,101,.12), transparent 25%),
+    linear-gradient(120deg, rgba(12,49,34,.94), rgba(10,25,19,.85));
+}
+
+.hero-section::after {
+  content: "✦";
+  position: absolute;
+  right: 12%;
+  bottom: 13%;
+  z-index: 0;
+
+  color: var(--gold2);
+  font-size: 75px;
+  text-shadow:
+    0 0 12px rgba(248,223,157,.8),
+    0 0 35px rgba(230,189,101,.65),
+    0 0 65px rgba(230,189,101,.35);
+
+  animation: starPulse 3s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* Extra small stars */
+.hero-content::after {
+  content: "✧     ✦       ✧";
+  position: absolute;
+  right: -10px;
+  bottom: -35px;
+
+  color: var(--gold);
+  font-size: 23px;
+  letter-spacing: 24px;
+  text-shadow: 0 0 15px rgba(230,189,101,.8);
+
+  animation: smallStarFloat 4s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+/* Floating animation */
+@keyframes starDrift {
+  from {
+    background-position:
+      20px 30px,
+      100px 120px,
+      60px 90px,
+      180px 200px;
+  }
+  to {
+    background-position:
+      20px 530px,
+      500px 120px,
+      60px 490px,
+      -180px 200px;
+  }
+}
+
+/* Main star glow */
+@keyframes starPulse {
+  0%, 100% {
+    opacity: .55;
+    transform: scale(.85) rotate(0deg);
+    filter: brightness(.9);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.15) rotate(18deg);
+    filter: brightness(1.5);
+  }
+}
+
+/* Small stars movement */
+@keyframes smallStarFloat {
+  from {
+    transform: translateY(8px);
+    opacity: .45;
+  }
+  to {
+    transform: translateY(-15px);
+    opacity: 1;
+  }
+}
+
+/* Keep website content above stars */
+.app-container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Mobile adjustment */
+@media (max-width: 750px) {
+  .hero-section::after {
+    right: 12%;
+    bottom: 10%;
+    font-size: 65px;
+  }
+
+  .hero-content::after {
+    right: -5px;
+    bottom: -40px;
+    font-size: 19px;
+  }
+}
+
+/* Respect reduced-motion setting */
+@media (prefers-reduced-motion: reduce) {
+  body::before,
+  .hero-section::after,
+  .hero-content::after {
+    animation: none !important;
+  }
+}
