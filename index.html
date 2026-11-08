@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#071512">
+
+  <title>MCQ VERSE | HSC Learning Platform</title>
+
+  <meta name="description" content="MCQ VERSE - Premium HSC Arts MCQ Learning Platform">
+
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- Animated Background -->
+  <canvas id="networkBackground"></canvas>
+  <div class="aurora aurora-one"></div>
+  <div class="aurora aurora-two"></div>
+
+  <!-- Main App -->
+  <div class="app-container">
+
+    <!-- Header -->
+    <header class="main-header">
+      <div class="brand">
+        <div class="brand-logo">M</div>
+        <div>
+          <h1>MCQ <span>VERSE</span></h1>
+          <p>YOUR HSC KNOWLEDGE WORLD</p>
+        </div>
+      </div>
+
+      <button class="theme-btn" id="themeToggle" aria-label="Change theme">
+        ◐
+      </button>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero-section">
+      <div class="hero-content">
+        <span class="hero-tag">✦ HSC ARTS & HUMANITIES</span>
+
+        <h2>
+          Learn Smart.<br>
+          <span>Score Higher.</span>
+        </h2>
+
+        <p>
+          Practice thousands of MCQs, improve your knowledge
+          and prepare for your next examination.
+        </p>
+
+        <button class="primary-btn" onclick="showSubjects()">
+          Start Practicing →
+        </button>
+      </div>
+
+      <div class="hero-decoration">
+        <div class="glow-circle">
+          <span>MCQ</span>
+          <small>VERSE</small>
+        </div>
+      </div>
+    </section>
+
+    <!-- Statistics -->
+    <section class="stats-grid">
+      <div class="stat-card">
+        <span>📚</span>
+        <h3 id="totalQuestions">0</h3>
+        <p>Total Questions</p>
+      </div>
+
+      <div class="stat-card">
+        <span>🎯</span>
+        <h3 id="totalPractice">0</h3>
+        <p>Practiced</p>
+      </div>
+
+      <div class="stat-card">
+        <span>🏆</span>
+        <h3 id="accuracy">0%</h3>
+        <p>Accuracy</p>
+      </div>
+    </section>
+
+    <!-- Subjects -->
+    <section class="content-section" id="subjectsSection">
+      <div class="section-heading">
+        <div>
+          <span class="section-label">YOUR LEARNING JOURNEY</span>
+          <h2>Explore Subjects</h2>
+        </div>
+        <span class="section-icon">✦</span>
+      </div>
+
+      <div class="subject-grid" id="subjectGrid">
+
+        <button class="subject-card" onclick="openSubject('bangla-1st')">
+          <span class="subject-icon">📖</span>
+          <h3>বাংলা ১ম পত্র</h3>
+          <p>Bangla First Paper</p>
+          <span class="card-arrow">→</span>
+        </button>
+
+        <button class="subject-card" onclick="openSubject('bangla-2nd')">
+          <span class="subject-icon">✍️</span>
+          <h3>বাংলা ২য় পত্র</h3>
+          <p>Bangla Second Paper</p>
+          <span class="card-arrow">→</span>
+        </button>
+
+        <button class="subject-card" onclick="openSubject('english-1st')">
+          <span class="subject-icon">🌐</span>
+          <h3>English 1st Paper</h3>
+          <p>English First Paper</p>
+          <span class="card-arrow">→</span>
+        </button>
+
+        <button class="subject-card" onclick="openSubject('english-2nd')">
+          <span class="subject-icon">📝</span>
+          <h3>English 2nd Paper</h3>
+          <p>English Second Paper</p>
+          <span class="card-arrow">→</span>
+        </button>
+
+        <button class="subject-card" onclick="openSubject('civics')">
+          <span class="subject-icon">⚖️</span>
+          <h3>পৌরনীতি</h3>
+          <p>Civics & Good Governance</p>
+          <span class="card-arrow">→</span>
+        </button>
+
+        <button class="subject-card" onclick="openSubject('economics')">
+          <span class="subject-icon">📊</span>
+          <h3>অর্থনীতি</h3>
+          <p>Economics</p>
+          <span class="card-arrow">→</span>
+        </button>
+
+        <button class="subject-card" onclick="openSubject('history')">
+          <span class="subject-icon">🏛️</span>
+          <h3>ইতিহাস</h3>
+          <p>History</p>
+          <span class="card-arrow">→</span>
+        </button>
+
+        <button class="subject-card" onclick="openSubject('islamic-history')">
+          <span class="subject-icon">🌙</span>
+          <h3>ইসলামের ইতিহাস</h3>
+          <p>Islamic History & Culture</p>
+          <span class="card-arrow">→</span>
+        </button>
+
+        <button class="subject-card" onclick="openSubject('sociology')">
+          <span class="subject-icon">👥</span>
+          <h3>সমাজবিজ্ঞান</h3>
+          <p>Sociology</p>
+          <span class="card-arrow">→</span>
+        </button>
+
+        <button class="subject-card" onclick="openSubject('logic')">
+          <span class="subject-icon">🧠</span>
+          <h3>যুক্তিবিদ্যা</h3>
+          <p>Logic</p>
+          <span class="card-arrow">→</span>
+        </button>
+
+        <button class="subject-card" onclick="openSubject('geography')">
+          <span class="subject-icon">🌍</span>
+          <h3>ভূগোল</h3>
+          <p>Geography</p>
+          <span class="card-arrow">→</span>
+        </button>
+
+      </div>
+    </section>
+
+    <!-- Chapter Area -->
+    <section class="content-section hidden" id="chapterSection">
+      <button class="back-btn" onclick="backToSubjects()">← Subjects</button>
+
+      <div class="section-heading">
+        <div>
+          <span class="section-label">SELECT YOUR CHAPTER</span>
+          <h2 id="selectedSubjectName">Chapters</h2>
+        </div>
+      </div>
+
+      <div class="chapter-list" id="chapterList"></div>
+    </section>
+
+    <!-- Quiz Area -->
+    <section class="content-section hidden" id="quizSection">
+      <button class="back-btn" onclick="backToChapters()">← Chapters</button>
+
+      <div class="quiz-card">
+        <div class="quiz-top">
+          <span id="quizChapterName">Chapter</span>
+          <span id="questionProgress">0 / 0</span>
+        </div>
+
+        <div class="progress-track">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+
+        <h2 id="questionText">Question will appear here</h2>
+
+        <div class="options-list" id="optionsList"></div>
+
+        <div id="explanationBox" class="explanation-box hidden"></div>
+
+        <button class="primary-btn hidden" id="nextQuestionBtn">
+          Next Question →
+        </button>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+      <div class="footer-logo">MCQ <span>VERSE</span></div>
+      <p>Built for Knowledge. Designed for Excellence.</p>
+      <small>© 2026 MCQ VERSE. All Rights Reserved.</small>
+    </footer>
+
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
